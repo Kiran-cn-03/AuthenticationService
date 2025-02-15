@@ -22,4 +22,11 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new UserResponseDTO(user.getId(), user.getUsername(), user.getRole());
     }
+
+    public UserResponseDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new UserResponseDTO(user.getId(), user.getUsername(), user.getRole());
+    }
+
 }
